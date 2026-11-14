@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>برومبت الليمت | عمرو إبراهيم</title>
+<meta name="description" content="البرومبت اللي يخلي ليمت Claude ميخلصش بسرعة. انسخه وابعته لـ Claude.">
+<meta property="og:title" content="البرومبت اللي يخلي ليمت Claude ميخلصش بسرعة">
+<meta property="og:description" content="انسخه وابعته لـ Claude، وهو هيطبق الـ 3 حاجات اللي في الريل.">
+<meta name="theme-color" content="#EDEDEF">
+<style>
+@font-face{font-family:AR;src:url(TheYearofHandicrafts-Regular.otf) format('opentype');font-weight:400;font-display:swap}
+@font-face{font-family:AR;src:url(TheYearofHandicrafts-Bold.otf) format('opentype');font-weight:700;font-display:swap}
+@font-face{font-family:LAT;src:url(Poppins-SemiBold.ttf) format('truetype');font-weight:600;font-display:swap}
+@font-face{font-family:LAT;src:url(Poppins-Bold.ttf) format('truetype');font-weight:700;font-display:swap}
+/* @amribrahem0_0 brand: light grey ground with a lavender glow, navy text, purple gradient key words, white cards, glossy 3D objects */
+:root{--bg:#EDEDEF;--card:#FFFFFF;--ink:#16165C;--slate:#4B4B78;--p1:#5B21B6;--p2:#A855F7;--soft:#F4F0FF;--line:#E4DEF7;--peach:#F5946B;
+  --ar:AR,'Segoe UI',Tahoma,sans-serif;--lat:LAT,'Segoe UI',Arial,sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--bg)}
+body{min-height:100vh;font-family:var(--ar);color:var(--ink);line-height:1.75;-webkit-font-smoothing:antialiased;
+  background:radial-gradient(700px 600px at 50% 18%,rgba(168,85,247,.16),rgba(168,85,247,0) 70%),radial-gradient(900px 900px at 50% 40%,#FAFAFC 0%,var(--bg) 72%);background-attachment:fixed;
+  padding:calc(28px + env(safe-area-inset-top,0px)) max(18px,env(safe-area-inset-right,0px)) calc(48px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px));overflow-x:hidden}
+.dots{position:fixed;inset:0;pointer-events:none;background-image:radial-gradient(circle,rgba(91,33,182,.09) 1.6px,transparent 2.1px);background-size:34px 34px;-webkit-mask-image:radial-gradient(600px 700px at 50% 30%,#000 30%,transparent 80%);mask-image:radial-gradient(600px 700px at 50% 30%,#000 30%,transparent 80%)}
+.blob{position:fixed;border-radius:50%;pointer-events:none;z-index:0}
+.wrap{position:relative;z-index:1;max-width:640px;margin:0 auto;display:flex;flex-direction:column;gap:20px}
+.lat{font-family:var(--lat);direction:ltr;unicode-bidi:isolate}
+.g{background:linear-gradient(135deg,var(--p1),var(--p2))}
+.gt{background:linear-gradient(135deg,var(--p1),var(--p2));-webkit-background-clip:text;background-clip:text;color:transparent}
+/* hero */
+.hero{text-align:center;padding-top:6px}
+.badge{display:inline-flex;align-items:center;gap:10px;background:var(--card);border-radius:999px;padding:8px 18px 8px 10px;box-shadow:0 10px 24px rgba(40,30,90,.10);font-weight:700;font-size:15px}
+.badge img{width:34px;height:34px;border-radius:50%;box-shadow:0 0 0 3px #fff,0 0 0 5px var(--p2)}
+.art{position:relative;height:190px;margin:18px auto 4px;max-width:420px}
+.art .spark{position:absolute;left:50%;top:50%;width:150px;height:150px;margin:-75px 0 0 -120px;animation:spin 14s linear infinite}
+.art .bat{position:absolute;left:50%;top:50%;width:170px;margin:-92px 0 0 -10px;transform:rotate(12deg);filter:drop-shadow(0 24px 30px rgba(76,29,149,.28));animation:bob 4s ease-in-out infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes bob{50%{transform:translateY(-10px) rotate(9deg)}}
+h1{font-size:clamp(32px,8.4vw,52px);font-weight:700;line-height:1.25;text-wrap:balance}
+.lead{margin-top:10px;color:var(--slate);font-size:18px;font-weight:700}
+/* cards */
+.card{background:var(--card);border-radius:32px;padding:24px;box-shadow:0 26px 60px rgba(40,30,90,.12),0 4px 12px rgba(40,30,90,.05)}
+h2{font-size:23px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.use{display:grid;gap:12px}
+.use div{display:flex;gap:14px;align-items:flex-start;background:var(--soft);border-radius:20px;padding:14px 16px;font-size:17px;font-weight:700}
+.n{flex:none;width:38px;height:38px;border-radius:12px;color:#fff;font-family:var(--lat);font-weight:700;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 18px rgba(91,33,182,.3)}
+/* prompt */
+.prompt{border:3px solid var(--line)}
+.ph{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.ph h2{margin:0}
+.copy{font-family:var(--ar);font-weight:700;font-size:18px;color:#fff;border:0;border-radius:999px;padding:13px 28px;cursor:pointer;box-shadow:0 14px 28px rgba(91,33,182,.35);transition:transform .15s}
+.copy:active{transform:scale(.96)}
+.copy:focus-visible{outline:3px solid var(--peach);outline-offset:3px}
+pre{white-space:pre-wrap;word-break:break-word;background:#F7F5FF;border-radius:22px;padding:20px;font-family:var(--ar);font-size:18px;line-height:2;color:var(--ink);direction:rtl}
+.big{width:100%;margin-top:14px;padding:16px}
+.note{display:flex;gap:12px;align-items:flex-start;background:#FFF1EA;border:2px solid #FBD5C2;color:#7C2D12;border-radius:22px;padding:16px 18px;font-size:16px;font-weight:700}
+/* tips */
+.tips{display:grid;gap:12px}
+.tip{display:flex;gap:14px;align-items:center;background:var(--soft);border-radius:22px;padding:12px 14px;min-width:0}
+.tip img{flex:none;width:76px;height:76px;object-fit:contain;filter:drop-shadow(0 10px 14px rgba(76,29,149,.22))}
+.tip b{display:block;font-size:19px}
+.tip span{color:var(--slate);font-size:16px;font-weight:700}
+/* footer */
+.follow{display:flex;align-items:center;gap:14px;justify-content:center;flex-wrap:wrap;text-align:center}
+.follow img{width:64px;height:64px;border-radius:50%;box-shadow:0 0 0 4px #fff,0 0 0 7px var(--p2),0 14px 28px rgba(91,33,182,.3)}
+.follow a{color:var(--ink);text-decoration:none;font-family:var(--lat);font-weight:700;font-size:20px}
+.follow small{display:block;color:var(--slate);font-family:var(--ar);font-weight:700;font-size:15px}
+#toast{position:fixed;left:50%;bottom:calc(24px + env(safe-area-inset-bottom,0px));transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:12px 24px;border-radius:999px;font-weight:700;opacity:0;transition:opacity .25s,transform .25s;z-index:5}
+#toast.on{opacity:1;transform:translate(-50%,0)}
+@media (prefers-reduced-motion:reduce){.art .spark,.art .bat{animation:none}#toast{transition:none}}
+</style>
+</head>
+<body>
+<div class="dots"></div>
+<div class="blob" style="width:150px;height:150px;left:-50px;top:120px;background:radial-gradient(circle at 35% 30%,#D8C7FF,#7C3AED 70%);opacity:.75"></div>
+<div class="blob" style="width:110px;height:110px;right:-40px;top:520px;border:24px solid #F8B597"></div>
+<div class="blob" style="width:60px;height:60px;left:30px;bottom:80px;background:radial-gradient(circle at 35% 30%,#fff,#DCDCE6)"></div>
+
+<main class="wrap">
+  <section class="hero">
+    <span class="badge"><img src="avatar.webp" alt="">من ريل الليمت</span>
+    <div class="art" aria-hidden="true">
+      <svg class="spark" viewBox="-12 -12 24 24" id="spark"></svg>
+      <img class="bat" src="battery.webp" alt="">
+    </div>
+    <h1>البرومبت اللي يخلي ليمت <span class="lat gt">Claude</span> <span class="gt">ميخلصش</span> بسرعة</h1>
+    <p class="lead">انسخه وابعته لـ <span class="lat">Claude</span>، وهو هيطبق الـ <span class="lat">3</span> حاجات اللي في الريل وانت شغال.</p>
+  </section>
+
+  <section class="card prompt">
+    <div class="ph"><h2>البرومبت</h2><button class="copy g" type="button" data-copy>انسخ البرومبت</button></div>
+<pre id="ptext">عايزك تساعدني أوفر الليمت بتاعي في الشات ده:
+1. ردودك تكون مختصرة ومباشرة، من غير مقدمات أو تكرار للسؤال.
+2. لما الشات يطول (حوالي 20 رسالة) أو نخلص موضوع، نبهني واكتبلي ملخص في نقط بكل اللي اتفقنا عليه، عشان أفتح بيه شات جديد.
+3. لو طلبي بسيط (كابشن، إيميل، ترجمة، تلخيص)، فكرني إن Haiku أو Sonnet كفاية بدل Opus.
+4. لو مش محتاج بحث أو أداة عشان ترد، متستخدمهاش.</pre>
+    <button class="copy g big" type="button" data-copy>انسخ البرومبت</button>
+  </section>
+
+  <section class="card">
+    <h2>تستخدمه إزاي</h2>
+    <div class="use">
+      <div><span class="n g">1</span><span>الصقه كأول رسالة في أي شات جديد.</span></div>
+      <div><span class="n g">2</span><span>أو حطه في <span class="lat">Settings</span> في خانة التعليمات، عشان يشتغل في كل الشاتات من غير ما تلصقه كل مرة.</span></div>
+    </div>
+  </section>
+
+  <div class="note"><span>⚠️</span><span><span class="lat">Claude</span> مش بيقدر يغير الموديل أو يقفل الأدوات بنفسه، هو بس هيفكرك. دي ضغطة منك: الموديل من القايمة جنب خانة الكتابة، والأدوات من زرار الأدوات في نفس المكان.</span></div>
+
+  <section class="card">
+    <h2>الـ <span class="lat">3</span> حاجات اللي البرومبت بيطبقها</h2>
+    <div class="tips">
+      <div class="tip"><img src="bubbles.webp" alt=""><div><b>شات جديد لكل موضوع</b><span>كل رسالة <span class="lat">Claude</span> بيعيد فيها قراية المحادثة كلها. خلصت؟ خد ملخص وابدأ من جديد.</span></div></div>
+      <div class="tip"><img src="fig_opus.webp" alt=""><div><b>الموديل المناسب</b><span><span class="lat">Opus</span> أتقل موديل على الليمت. للعادي <span class="lat">Haiku</span> أو <span class="lat">Sonnet</span> كفاية.</span></div></div>
+      <div class="tip"><img src="globe.webp" alt=""><div><b>اقفل الأدوات الزيادة</b><span>كل <span class="lat">connector</span> أو بحث شغال بياكل من الليمت.</span></div></div>
+    </div>
+  </section>
+
+  <footer class="follow">
+    <img src="avatar.webp" alt="عمرو إبراهيم">
+    <div><a class="lat" href="https://www.instagram.com/amribrahem0_0/" target="_blank" rel="noopener">@amribrahem0_0</a><small>تابعني لنصايح Claude والـ AI للماركتينج</small></div>
+  </footer>
+</main>
+<div id="toast" role="status" aria-live="polite">اتنسخ، الصقه في Claude</div>
+
+<script>
+// Claude spark
+(function(){let s='';const R=[9.6,7.6,10.4,8.1,9.1,7.2,10.1,8.4,9.8,7.3,10.3,8.2];for(let i=0;i<12;i++){const a=i/12*Math.PI*2+0.13;s+=`<line x1="${(Math.cos(a)*1.3).toFixed(2)}" y1="${(Math.sin(a)*1.3).toFixed(2)}" x2="${(Math.cos(a)*R[i]).toFixed(2)}" y2="${(Math.sin(a)*R[i]).toFixed(2)}" stroke="#D97757" stroke-width="2.4" stroke-linecap="round"/>`}document.getElementById('spark').innerHTML=s})();
+// copy
+const pre=document.getElementById('ptext'),toast=document.getElementById('toast');
+function show(msg){toast.textContent=msg;toast.classList.add('on');clearTimeout(show.t);show.t=setTimeout(()=>toast.classList.remove('on'),2000)}
+function fallback(){const r=document.createRange();r.selectNodeContents(pre);const s=getSelection();s.removeAllRanges();s.addRange(r);try{document.execCommand('copy');show('اتنسخ، الصقه في Claude')}catch(e){show('اضغط نسخ من الكيبورد أو اللمس')}}
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{const txt=pre.textContent;
+  if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(txt).then(()=>{show('اتنسخ، الصقه في Claude');const o=b.textContent;b.textContent='اتنسخ ✓';setTimeout(()=>b.textContent=o,1800)}).catch(fallback)}else fallback()}));
+</script>
+</body>
+</html>
